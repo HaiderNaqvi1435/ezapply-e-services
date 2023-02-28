@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "568433684146",
+    "project_id": "ezapply-838dc",
+    "storage_bucket": "ezapply-838dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568433684146:android:703bea831e5b7bc556e3ab",
+        "android_client_info": {
+          "package_name": "com.eservices.ezapply"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568433684146-6u1cme2vbdi2riosblhpumqi4ft2vdfk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGv8zP5BRdDt7jHHlPj5aIccpuZxgHIkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "568433684146-6u1cme2vbdi2riosblhpumqi4ft2vdfk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568433684146:android:c8fb7692c4dad07656e3ab",
+        "android_client_info": {
+          "package_name": "com.example.ezapplyadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568433684146-6u1cme2vbdi2riosblhpumqi4ft2vdfk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGv8zP5BRdDt7jHHlPj5aIccpuZxgHIkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "568433684146-6u1cme2vbdi2riosblhpumqi4ft2vdfk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
