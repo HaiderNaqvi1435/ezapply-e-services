@@ -1,9 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:ezapplly/Features/auth/auth_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 // import 'package:keep_tasks/Core/Classes/Themes/Utils.dart';
 
 class ForgetPassword extends StatefulWidget {
-  ForgetPassword({Key? key}) : super(key: key);
+  const ForgetPassword({Key? key}) : super(key: key);
 
   @override
   State<ForgetPassword> createState() => _ForgetPasswordState();
@@ -11,7 +12,6 @@ class ForgetPassword extends StatefulWidget {
 
 class _ForgetPasswordState extends State<ForgetPassword> {
   final formKey = GlobalKey<FormState>();
-  final emailCont = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,57 +26,41 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
+              const Text(
                 "Enter your Email",
                 // style: Utils.normalText(size: 16),
               ),
               const SizedBox(height: 20),
-              TextFormField(
-                controller: emailCont,
-                textInputAction: TextInputAction.done,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Enter a valid email";
-                  } else
-                    null;
-                },
-                // decoration: Utils.myTextField(label: "Email"),
-                decoration: InputDecoration(label: Text('Email')),
+              Consumer<AuthManager>(
+                builder: (context, value, child) => TextFormField(
+                  controller: value.uemailcont,
+                  textInputAction: TextInputAction.done,
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Enter a valid email";
+                    } else
+                      null;
+                  },
+                  // decoration: Utils.myTextField(label: "Email"),
+                  decoration: const InputDecoration(label: Text('Email')),
+                ),
               ),
               const SizedBox(height: 5),
-              ElevatedButton(
-                  // style: ElevatedButton.styleFrom(
-                  //   minimumSize: Size.fromHeight(50),
-                  // ),
-                  onPressed: verifyEmail,
-                  child: const Text(
-                    "Reset Password",
-                  )),
+              Consumer<AuthManager>(
+                builder: (context, value, child) => ElevatedButton(
+                    // style: ElevatedButton.styleFrom(
+                    //   minimumSize: Size.fromHeight(50),
+                    // ),
+                    onPressed: value.resetpasswordemail(),
+                    child: const Text(
+                      "Reset Password",
+                    )),
+              ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  verifyEmail() async {
-    formKey.currentState!.validate();
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (context) => Center(child: CircularProgressIndicator()),
-    );
-    try {
-      await FirebaseAuth.instance
-          .sendPasswordResetEmail(email: emailCont.text.toLowerCase().trim());
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Email sent successfully!")));
-      Navigator.of(context).popUntil((route) => route.isFirst);
-    } on FirebaseException catch (e) {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(e.toString())));
-      Navigator.of(context).pop();
-    }
   }
 }

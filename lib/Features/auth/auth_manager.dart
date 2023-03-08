@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../Shared/navbar.dart';
 import '../../main.dart';
-import 'VerifyEmail.dart';
+import 'verifyemail.dart';
 import 'login.dart';
 import 'user_data.dart';
 
@@ -142,5 +142,24 @@ class AuthManager with ChangeNotifier {
         MaterialPageRoute(
           builder: (context) => Loginpage(),
         )));
+  }
+
+  resetpasswordemail() async {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => Center(child: CircularProgressIndicator()),
+    );
+    try {
+      await FirebaseAuth.instance
+          .sendPasswordResetEmail(email: uemailcont.text.toLowerCase().trim());
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text("Email sent successfully!")));
+      Navigator.of(context).popUntil((route) => route.isFirst);
+    } on FirebaseException catch (e) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text(e.toString())));
+      Navigator.of(context).pop();
+    }
   }
 }

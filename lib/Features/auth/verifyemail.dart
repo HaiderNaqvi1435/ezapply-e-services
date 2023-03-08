@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // import 'package:keep_tasks/Core/Classes/Themes/Utils.dart';
 // import '../HomePage.dart';
 class VerifyEmail extends StatefulWidget {
-  VerifyEmail({Key? key}) : super(key: key);
+  const VerifyEmail({Key? key}) : super(key: key);
   @override
   State<VerifyEmail> createState() => _VerifyEmailState();
 }
@@ -15,7 +15,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
   sendNewEmail() async {
     try {
       await FirebaseAuth.instance.currentUser!.sendEmailVerification();
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
           content: Text("A verification has been sent to your email")));
       setState(() {
         resendEmail = false;
@@ -72,8 +72,8 @@ class _VerifyEmailState extends State<VerifyEmail> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(26.0),
+                const Padding(
+                  padding: EdgeInsets.all(26.0),
                   child: Text(
                     "A verification email has been sent to your email",
                     // style: Utils.normalText(
