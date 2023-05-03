@@ -38,7 +38,7 @@ class AuthManager with ChangeNotifier {
         if (snapshot.hasData) {
           return MyNavBar();
         } else {
-          return const Loginpage();
+          return  Loginpage();
         }
       },
     );
@@ -148,13 +148,13 @@ class AuthManager with ChangeNotifier {
     showDialog(
       context: context,
       barrierDismissible: false,
-      builder: (context) => Center(child: CircularProgressIndicator()),
+      builder: (context) => const Center(child: CircularProgressIndicator()),
     );
     try {
       await FirebaseAuth.instance
-          .sendPasswordResetEmail(email: uemailcont.text.toLowerCase().trim());
-      ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text("Email sent successfully!")));
+          .sendPasswordResetEmail(email: uemailcont.text.toLowerCase().trim()).then((value) =>  ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("Email sent successfully!"))));
+     
       Navigator.of(context).popUntil((route) => route.isFirst);
     } on FirebaseException catch (e) {
       ScaffoldMessenger.of(context)

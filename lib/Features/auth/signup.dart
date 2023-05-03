@@ -110,7 +110,7 @@ class Signuppage extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const Loginpage(),
+                                  builder: (context) =>  Loginpage(),
                                 ));
                           }),
                           text1: "Already have and account?",

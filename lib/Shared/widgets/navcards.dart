@@ -50,9 +50,8 @@ Widget newscard(
               TextButton(
                   onPressed: () {
                     showDialog(
-                      context: context,
-                      builder: (context) => viewMore(newsModel.description!),
-                    );
+                        context: context,
+                        builder: (context) => viewMore(newsModel.description!));
                   },
                   child: const Text(
                     "View More >>",

@@ -22,42 +22,44 @@ class _ForgetPasswordState extends State<ForgetPassword> {
         key: formKey,
         child: Padding(
           padding: const EdgeInsets.all(36.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text(
-                "Enter your Email",
-                // style: Utils.normalText(size: 16),
-              ),
-              const SizedBox(height: 20),
-              Consumer<AuthManager>(
-                builder: (context, value, child) => TextFormField(
-                  controller: value.uemailcont,
-                  textInputAction: TextInputAction.done,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Enter a valid email";
-                    } else
-                      null;
-                  },
-                  // decoration: Utils.myTextField(label: "Email"),
-                  decoration: const InputDecoration(label: Text('Email')),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  "Enter your Email",
+                  // style: Utils.normalText(size: 16),
                 ),
-              ),
-              const SizedBox(height: 5),
-              Consumer<AuthManager>(
-                builder: (context, value, child) => ElevatedButton(
-                    // style: ElevatedButton.styleFrom(
-                    //   minimumSize: Size.fromHeight(50),
-                    // ),
-                    onPressed: value.resetpasswordemail(),
-                    child: const Text(
-                      "Reset Password",
-                    )),
-              ),
-            ],
+                const SizedBox(height: 20),
+                Consumer<AuthManager>(
+                  builder: (context, value, child) => TextFormField(
+                    controller: value.uemailcont,
+                    textInputAction: TextInputAction.done,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Enter a valid email";
+                      } else
+                       null;
+                    },
+                    // decoration: Utils.myTextField(label: "Email"),
+                    decoration: const InputDecoration(label: Text('Email')),
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Consumer<AuthManager>(
+                  builder: (context, value, child) => ElevatedButton(
+                      // style: ElevatedButton.styleFrom(
+                      //   minimumSize: Size.fromHeight(50),
+                      // ),
+                      onPressed: ()=> value.resetpasswordemail(),
+                      child: const Text(
+                        "Reset Password",
+                      )),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -8,7 +8,7 @@ Widget Inputtext(
     TextEditingController? controller}) {
   return TextFormField(
     controller: controller,
-    validator: validate == null ? null : validate,
+    validator: validate,
     onChanged: onChanged,
     style: const TextStyle(fontSize: 14),
     decoration: InputDecoration(
@@ -37,6 +37,7 @@ Widget Inputtextcontect(
     TextEditingController? controller}) {
   return TextFormField(
     controller: controller,
+    // ignore: prefer_if_null_operators
     maxLines: maxline == null ? null : maxline,
     // onChanged: onChanged,
     style: const TextStyle(fontSize: 14),
