@@ -1,3 +1,4 @@
+Developed an online application for applying for admissions and jobs in relevant areas. The app notifies users about new admissions and jobs through a newsfeed. It also includes a chat facility with the admin for user inquiries and support.
 ![register](https://github.com/HaiderNaqvi1435/ezapplyReady/assets/104074528/1c0b5734-00e1-4c1f-b4a0-2fd3c8954b1f)
 ![Login Page](https://github.com/HaiderNaqvi1435/ezapplyReady/assets/104074528/56a775c7-a79c-4e6a-8b46-7670c12e6b37)
 ![Our services](https://github.com/HaiderNaqvi1435/ezapplyReady/assets/104074528/1d759d71-2af3-4024-a204-7ca47b90c4f2)
